@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="usb_test"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="main">
+				<Option output="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/main" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/."/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 main"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="main/fast">
+				<Option output="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/main" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/."/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 main/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="objcpp">
+				<Option output="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/libobjcpp.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/."/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 objcpp"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="objcpp/fast">
+				<Option output="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/libobjcpp.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/."/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 objcpp/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="objc">
+				<Option output="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/libobjc.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/."/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 objc"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="objc/fast">
+				<Option output="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/libobjc.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/."/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 objc/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/API.cpp">
+			<Option target="objcpp"/>
+		</Unit>
+		<Unit filename="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/API.h">
+			<Option target="objcpp"/>
+		</Unit>
+		<Unit filename="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/Serial.c">
+			<Option target="objc"/>
+		</Unit>
+		<Unit filename="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/Serial.h">
+			<Option target="objc"/>
+		</Unit>
+		<Unit filename="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/dlpspec.c">
+			<Option target="objc"/>
+		</Unit>
+		<Unit filename="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/dlpspec.h">
+			<Option target="objc"/>
+		</Unit>
+		<Unit filename="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/dlpspec_calib.c">
+			<Option target="objc"/>
+		</Unit>
+		<Unit filename="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/dlpspec_calib.h">
+			<Option target="objc"/>
+		</Unit>
+		<Unit filename="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/dlpspec_helper.c">
+			<Option target="objc"/>
+		</Unit>
+		<Unit filename="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/dlpspec_helper.h">
+			<Option target="objc"/>
+		</Unit>
+		<Unit filename="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/dlpspec_scan.c">
+			<Option target="objc"/>
+		</Unit>
+		<Unit filename="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/dlpspec_scan.h">
+			<Option target="objc"/>
+		</Unit>
+		<Unit filename="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/dlpspec_scan_col.c">
+			<Option target="objc"/>
+		</Unit>
+		<Unit filename="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/dlpspec_scan_col.h">
+			<Option target="objc"/>
+		</Unit>
+		<Unit filename="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/dlpspec_scan_had.c">
+			<Option target="objc"/>
+		</Unit>
+		<Unit filename="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/dlpspec_scan_had.h">
+			<Option target="objc"/>
+		</Unit>
+		<Unit filename="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/dlpspec_util.c">
+			<Option target="objc"/>
+		</Unit>
+		<Unit filename="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/dlpspec_util.h">
+			<Option target="objc"/>
+		</Unit>
+		<Unit filename="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/evm.cpp">
+			<Option target="objcpp"/>
+		</Unit>
+		<Unit filename="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/evm.h">
+			<Option target="objcpp"/>
+		</Unit>
+		<Unit filename="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/hid.c">
+			<Option target="objc"/>
+		</Unit>
+		<Unit filename="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/main.cpp">
+			<Option target="main"/>
+			<Option target="objcpp"/>
+		</Unit>
+		<Unit filename="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/tpl.c">
+			<Option target="objc"/>
+		</Unit>
+		<Unit filename="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/tpl.h">
+			<Option target="objc"/>
+		</Unit>
+		<Unit filename="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/usb.cpp">
+			<Option target="objcpp"/>
+		</Unit>
+		<Unit filename="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/usb.h">
+			<Option target="objcpp"/>
+		</Unit>
+		<Unit filename="/home/akg/Documents/share/git/NIRS/src/nirs_service/nirs_module/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

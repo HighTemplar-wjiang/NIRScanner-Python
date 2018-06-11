@@ -1,0 +1,5 @@
+/home/akg/Documents/share/python/NIRScanner-Python/src/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/akg/Documents/share/python/NIRScanner-Python/src/cmake-build-debug/CMakeFiles/main.dir
+/home/akg/Documents/share/python/NIRScanner-Python/src/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/akg/Documents/share/python/NIRScanner-Python/src/cmake-build-debug/CMakeFiles/objcpp.dir
+/home/akg/Documents/share/python/NIRScanner-Python/src/cmake-build-debug/CMakeFiles/objc.dir

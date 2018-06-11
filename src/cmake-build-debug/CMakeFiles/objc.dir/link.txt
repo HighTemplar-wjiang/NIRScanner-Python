@@ -1,0 +1,2 @@
+/usr/bin/ar qc libobjc.a  CMakeFiles/objc.dir/Serial.c.o CMakeFiles/objc.dir/dlpspec.c.o CMakeFiles/objc.dir/dlpspec_calib.c.o CMakeFiles/objc.dir/dlpspec_helper.c.o CMakeFiles/objc.dir/dlpspec_scan.c.o CMakeFiles/objc.dir/dlpspec_scan_col.c.o CMakeFiles/objc.dir/dlpspec_scan_had.c.o CMakeFiles/objc.dir/dlpspec_util.c.o CMakeFiles/objc.dir/hid.c.o CMakeFiles/objc.dir/tpl.c.o
+/usr/bin/ranlib libobjc.a

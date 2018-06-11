@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/main.dir/main.cpp.o  -o main libobjc.a libobjcpp.a -ludev libobjc.a libobjcpp.a -ludev 
