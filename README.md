@@ -48,12 +48,15 @@ NIRScanner-Python$ cp ./lib/NIRS.py <your-project-path>
 ```
 
 ## Run
+You need root (sudo) permission. For a workaround please refer to [1].
 ```python
 from NIRS import NIRS
 nirs = NIRS()
 results = nirs.scan()
 ```
 That's it.
+
+[1] https://stackoverflow.com/questions/3738173/why-does-pyusb-libusb-require-root-sudo-permissions-on-linux
 
 # FAQ
 TBD
