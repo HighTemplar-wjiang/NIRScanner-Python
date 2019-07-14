@@ -8,7 +8,7 @@ This is an unofficial Python library for NIRScanner Nano produced by Texas Instr
   - Python 2.7 or Python 3.5 above 
   - Development packages for libudev, libusb. Debian/Ubuntu systems can run:
     ```bash
-    sudo apt-get install libudev-dev libusb-1.0-0-dev
+    sudo apt-get install libudev-dev libusb-1.0-0-dev python-dev python3-dev
     ```
 
 # Quick Start
