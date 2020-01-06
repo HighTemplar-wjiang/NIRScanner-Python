@@ -13,6 +13,7 @@ fi
 # Find Python version & set library path.
 PYTHON3_VERSION=$(python3 -c 'import sys; print(".".join(map(str, sys.version_info[:2])))')
 
+# Compile.
 gcc -fpic -c $DIR/../*.c
 g++ -fpic -c $DIR/../*.cpp
 g++ -fpic -c $DIR/../*.cxx -I/usr/include/python${PYTHON3_VERSION}
@@ -21,3 +22,5 @@ mv ./*.o $DIR/../build
 g++ -shared $DIR/../build/*.o -ludev -lpython${PYTHON3_VERSION}m -o $DIR/../build/_NIRScanner.so.3
 cp $DIR/../build/_NIRScanner.so.3 $DIR/../../lib/
 
+# Clean .o files.
+rm $DIR/../build/*.o
