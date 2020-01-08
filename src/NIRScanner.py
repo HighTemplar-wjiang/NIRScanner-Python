@@ -122,6 +122,9 @@ class NIRScanner(_object):
 
     def getScanData(self):
         return _NIRScanner.NIRScanner_getScanData(self)
+
+    def setHibernate(self, newValue):
+        return _NIRScanner.NIRScanner_setHibernate(self, newValue)
 NIRScanner_swigregister = _NIRScanner.NIRScanner_swigregister
 NIRScanner_swigregister(NIRScanner)
 

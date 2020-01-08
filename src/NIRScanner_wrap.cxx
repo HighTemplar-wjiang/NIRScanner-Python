@@ -3642,6 +3642,37 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_NIRScanner_setHibernate(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  NIRScanner *arg1 = (NIRScanner *) 0 ;
+  bool arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:NIRScanner_setHibernate",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_NIRScanner, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "NIRScanner_setHibernate" "', argument " "1"" of type '" "NIRScanner *""'"); 
+  }
+  arg1 = reinterpret_cast< NIRScanner * >(argp1);
+  ecode2 = SWIG_AsVal_bool(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "NIRScanner_setHibernate" "', argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = static_cast< bool >(val2);
+  result = (int)(arg1)->setHibernate(arg2);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *NIRScanner_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!PyArg_ParseTuple(args,(char *)"O:swigregister", &obj)) return NULL;
@@ -3657,6 +3688,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"NIRScanner_ConfigEVM", _wrap_NIRScanner_ConfigEVM, METH_VARARGS, NULL},
 	 { (char *)"NIRScanner_scan", _wrap_NIRScanner_scan, METH_VARARGS, NULL},
 	 { (char *)"NIRScanner_getScanData", _wrap_NIRScanner_getScanData, METH_VARARGS, NULL},
+	 { (char *)"NIRScanner_setHibernate", _wrap_NIRScanner_setHibernate, METH_VARARGS, NULL},
 	 { (char *)"NIRScanner_swigregister", NIRScanner_swigregister, METH_VARARGS, NULL},
 	 { NULL, NULL, 0, NULL }
 };

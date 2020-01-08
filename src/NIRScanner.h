@@ -36,6 +36,7 @@ public:
     void ConfigEVM(uScanConfig* pConfig = nullptr);
     void scan(bool saveDataFlag = false);
     string getScanData();
+    int setHibernate(bool newValue);
 
 
 private:

@@ -23,7 +23,7 @@ public:
     void ConfigEVM(uScanConfig* pConfig = nullptr);
     void scan(bool saveDataFlag = false);
     string getScanData();
-
+    int setHibernate(bool newValue);
 
 private:
     int _PerformScanReadData(bool storeInSD, uint16 numRepeats, void *pData, int *pBytesRead);

@@ -419,6 +419,14 @@ string NIRScanner::getScanData()
     return scanResults;
 }
 
+int NIRScanner::setHibernate(bool newValue)
+/**
+* Enable hibernate after inactive if True, otherwise disable. 
+* This is for Python API.
+*/
+{
+    return NNO_SetHibernate(newValue);
+}
 
 
 

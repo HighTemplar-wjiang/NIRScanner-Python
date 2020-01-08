@@ -60,6 +60,9 @@ class NIRS:
     def display_version(self):
         return NIRScanner_readVersion(self.nirs_obj)
 
+    def set_hibernate(self, new_value: bool):
+        return NIRScanner_setHibernate(self.nirs_obj, new_value)
+
 
 if __name__ == "__main__":
     nirs = NIRS()
