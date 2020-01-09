@@ -19,8 +19,8 @@ class NIRS:
         print("Cleanning up NIRS instance.")
         delete_NIRScanner(self.nirs_obj)
 
-    def scan(self):
-        NIRScanner_scan(self.nirs_obj)
+    def scan(self, num_repeats=1):
+        NIRScanner_scan(self.nirs_obj, False, num_repeats)
 
     def get_scan_results(self):
         results_dict = {}
