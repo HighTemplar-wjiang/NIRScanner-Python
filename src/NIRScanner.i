@@ -21,7 +21,7 @@ public:
 
     int readVersion();
     void ConfigEVM(uScanConfig* pConfig = nullptr);
-    void scan(bool saveDataFlag = false);
+    void scan(bool saveDataFlag = false, int numRepeats=1);
     string getScanData();
     int setHibernate(bool newValue);
 

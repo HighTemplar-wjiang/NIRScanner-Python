@@ -117,8 +117,8 @@ class NIRScanner(_object):
     def ConfigEVM(self, pConfig=None):
         return _NIRScanner.NIRScanner_ConfigEVM(self, pConfig)
 
-    def scan(self, saveDataFlag=False):
-        return _NIRScanner.NIRScanner_scan(self, saveDataFlag)
+    def scan(self, saveDataFlag=False, numRepeats=1):
+        return _NIRScanner.NIRScanner_scan(self, saveDataFlag, numRepeats)
 
     def getScanData(self):
         return _NIRScanner.NIRScanner_getScanData(self)

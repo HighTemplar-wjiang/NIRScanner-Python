@@ -3264,6 +3264,32 @@ SWIG_AsVal_bool (PyObject *obj, bool *val)
 }
 
 
+#include <limits.h>
+#if !defined(SWIG_NO_LLONG_MAX)
+# if !defined(LLONG_MAX) && defined(__GNUC__) && defined (__LONG_LONG_MAX__)
+#   define LLONG_MAX __LONG_LONG_MAX__
+#   define LLONG_MIN (-LLONG_MAX - 1LL)
+#   define ULLONG_MAX (LLONG_MAX * 2ULL + 1ULL)
+# endif
+#endif
+
+
+SWIGINTERN int
+SWIG_AsVal_int (PyObject * obj, int *val)
+{
+  long v;
+  int res = SWIG_AsVal_long (obj, &v);
+  if (SWIG_IsOK(res)) {
+    if ((v < INT_MIN || v > INT_MAX)) {
+      return SWIG_OverflowError;
+    } else {
+      if (val) *val = static_cast< int >(v);
+    }
+  }  
+  return res;
+}
+
+
 SWIGINTERN swig_type_info*
 SWIG_pchar_descriptor(void)
 {
@@ -3527,6 +3553,45 @@ SWIGINTERN PyObject *_wrap_NIRScanner_scan__SWIG_0(PyObject *SWIGUNUSEDPARM(self
   PyObject *resultobj = 0;
   NIRScanner *arg1 = (NIRScanner *) 0 ;
   bool arg2 ;
+  int arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:NIRScanner_scan",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_NIRScanner, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "NIRScanner_scan" "', argument " "1"" of type '" "NIRScanner *""'"); 
+  }
+  arg1 = reinterpret_cast< NIRScanner * >(argp1);
+  ecode2 = SWIG_AsVal_bool(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "NIRScanner_scan" "', argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = static_cast< bool >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "NIRScanner_scan" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  (arg1)->scan(arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_NIRScanner_scan__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  NIRScanner *arg1 = (NIRScanner *) 0 ;
+  bool arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   bool val2 ;
@@ -3553,7 +3618,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_NIRScanner_scan__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_NIRScanner_scan__SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   NIRScanner *arg1 = (NIRScanner *) 0 ;
   void *argp1 = 0 ;
@@ -3576,14 +3641,14 @@ fail:
 
 SWIGINTERN PyObject *_wrap_NIRScanner_scan(PyObject *self, PyObject *args) {
   Py_ssize_t argc;
-  PyObject *argv[3] = {
+  PyObject *argv[4] = {
     0
   };
   Py_ssize_t ii;
   
   if (!PyTuple_Check(args)) SWIG_fail;
   argc = args ? PyObject_Length(args) : 0;
-  for (ii = 0; (ii < 2) && (ii < argc); ii++) {
+  for (ii = 0; (ii < 3) && (ii < argc); ii++) {
     argv[ii] = PyTuple_GET_ITEM(args,ii);
   }
   if (argc == 1) {
@@ -3592,7 +3657,7 @@ SWIGINTERN PyObject *_wrap_NIRScanner_scan(PyObject *self, PyObject *args) {
     int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_NIRScanner, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
-      return _wrap_NIRScanner_scan__SWIG_1(self, args);
+      return _wrap_NIRScanner_scan__SWIG_2(self, args);
     }
   }
   if (argc == 2) {
@@ -3606,7 +3671,28 @@ SWIGINTERN PyObject *_wrap_NIRScanner_scan(PyObject *self, PyObject *args) {
         _v = SWIG_CheckState(res);
       }
       if (_v) {
-        return _wrap_NIRScanner_scan__SWIG_0(self, args);
+        return _wrap_NIRScanner_scan__SWIG_1(self, args);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_NIRScanner, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      {
+        int res = SWIG_AsVal_bool(argv[1], NULL);
+        _v = SWIG_CheckState(res);
+      }
+      if (_v) {
+        {
+          int res = SWIG_AsVal_int(argv[2], NULL);
+          _v = SWIG_CheckState(res);
+        }
+        if (_v) {
+          return _wrap_NIRScanner_scan__SWIG_0(self, args);
+        }
       }
     }
   }
@@ -3614,6 +3700,7 @@ SWIGINTERN PyObject *_wrap_NIRScanner_scan(PyObject *self, PyObject *args) {
 fail:
   SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'NIRScanner_scan'.\n"
     "  Possible C/C++ prototypes are:\n"
+    "    NIRScanner::scan(bool,int)\n"
     "    NIRScanner::scan(bool)\n"
     "    NIRScanner::scan()\n");
   return 0;

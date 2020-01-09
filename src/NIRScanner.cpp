@@ -289,7 +289,7 @@ int NIRScanner::_InterpretData(void *pData)
 }
 
 
-void NIRScanner::scan(bool saveDataFlag)
+void NIRScanner::scan(bool saveDataFlag, int numRepeats)
 /**
  * This is a handler function for pushButton_scan on Scan Tab clicked() event
  * This function does the following tasks
@@ -312,7 +312,7 @@ void NIRScanner::scan(bool saveDataFlag)
     }
 
     // Scanning.
-    scanStatus = this->_PerformScanReadData(NNO_DONT_STORE_SCAN_IN_SD, 2, pData, &fileSize);
+    scanStatus = this->_PerformScanReadData(NNO_DONT_STORE_SCAN_IN_SD, numRepeats, pData, &fileSize);
     if (scanStatus != PASS) {
         std::cout << "ERROR: Scan failed." << std::endl;
     }
