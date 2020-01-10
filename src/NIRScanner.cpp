@@ -41,7 +41,7 @@ NIRScanner::NIRScanner(uScanConfig *pConfig) {
     this->pRefDataBlob = this->mEvm.GetRefCalDataBlob();
 
     // Apply configuration.
-    this->ConfigEVM();
+    this->configEVM();
 
 }
 
@@ -160,7 +160,12 @@ int NIRScanner::readVersion()
 }
 
 
-void NIRScanner::ConfigEVM(uScanConfig *pConfig) {
+void NIRScanner::configEVM(uScanConfig *pConfig) {
+/* 
+ * Config NRIScan Nano. If pConfig is not provided, using the config stored in the instance..
+ * 
+ * 
+*/
     if (pConfig != nullptr) {
         this->mConfig = *pConfig;
     }
@@ -173,8 +178,27 @@ void NIRScanner::ConfigEVM(uScanConfig *pConfig) {
 
 }
 
+void NIRScanner::setConfig(uint16_t scanConfigIndex,  // < Unique ID per spectrometer which is modified when the config is changed. Can be used to determine whether a cached version of the config is valid per spectrometer SN.
+                           uint8_t scan_type,  // 0: COLUMN_TYPE, 1: HADAMARD_TYPE, 2: SLEW_TYPE.
+                           uint16_t num_patterns, // Number of desired points in the spectrum.
+                           uint16_t num_repeats, // Number of times to repeat the scan on the spectromter before averaging the scans together and returning the results. This can be used to increase integration time.
+                           uint16_t wavelength_start_nm, // Minimum wavelength to start the scan from, in nm.
+                           uint16_t wavelength_end_nm, // Maximum wavelength to end the scan at, in nm.
+                           uint8_t width_px // Pixel width of the patterns. Increasing this will increase SNR, but reduce resolution.
+                           ) {
+    this->mConfig.scanCfg.scanConfigIndex = scanConfigIndex;
+    this->mConfig.scanCfg.scan_type = scan_type;
+    this->mConfig.scanCfg.num_patterns = num_patterns;
+    this->mConfig.scanCfg.num_repeats = num_repeats;
+    this->mConfig.scanCfg.wavelength_start_nm = wavelength_start_nm;
+    this->mConfig.scanCfg.wavelength_end_nm = wavelength_end_nm;
+    this->mConfig.scanCfg.width_px = width_px;
 
-int NIRScanner::_PerformScanReadData(bool storeInSD, uint16 numRepeats, void *pData, int *pBytesRead)
+    this->configEVM();
+}
+
+
+int NIRScanner::_performScanReadData(bool storeInSD, uint16 numRepeats, void *pData, int *pBytesRead)
 /*
  * This function asks the Nano to perform the scan and gets back the ScanData
  * @param storeInSD - I - a boolean to indicate if the current scan is to be stored in SD card
@@ -195,7 +219,7 @@ int NIRScanner::_PerformScanReadData(bool storeInSD, uint16 numRepeats, void *pD
     // NNO_SetFixedPGAGain(true,1);   /* Only used for testing Fixed PGA command  */
     NNO_SetScanNumRepeats(numRepeats);
     std::cout << "Scan in progress.Estimated Scan time is approximately "
-              << (float) NNO_GetEstimatedScanTime() / 1000.0 << " seconds";
+              << (float) NNO_GetEstimatedScanTime() / 1000.0 << " seconds. ";
 
     scanTimeOut = NNO_GetEstimatedScanTime() * 3;
     timeScanStart = time(0);
@@ -237,7 +261,7 @@ int NIRScanner::_PerformScanReadData(bool storeInSD, uint16 numRepeats, void *pD
 }
 
 
-int NIRScanner::_InterpretData(void *pData)
+int NIRScanner::_interpretData(void *pData)
 /**
  * This function takes scan data and reference data as serialzed blobs, interprets them
  * using spectrum library APIs and saves for future use.
@@ -312,7 +336,7 @@ void NIRScanner::scan(bool saveDataFlag, int numRepeats)
     }
 
     // Scanning.
-    scanStatus = this->_PerformScanReadData(NNO_DONT_STORE_SCAN_IN_SD, numRepeats, pData, &fileSize);
+    scanStatus = this->_performScanReadData(NNO_DONT_STORE_SCAN_IN_SD, numRepeats, pData, &fileSize);
     if (scanStatus != PASS) {
         std::cout << "ERROR: Scan failed." << std::endl;
     }
@@ -320,7 +344,7 @@ void NIRScanner::scan(bool saveDataFlag, int numRepeats)
     // Display versions.
     std::cout << "Header version: " << ((scanData *) pData)->header_version << std::endl;
 
-    int retVal = this->_InterpretData(pData);
+    int retVal = this->_interpretData(pData);
     if (retVal != PASS) {
         std::cout << "ERROR: Interpret data failed." << std::endl;
     } else {

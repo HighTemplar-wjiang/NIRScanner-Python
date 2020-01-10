@@ -114,8 +114,11 @@ class NIRScanner(_object):
     def readVersion(self):
         return _NIRScanner.NIRScanner_readVersion(self)
 
-    def ConfigEVM(self, pConfig=None):
-        return _NIRScanner.NIRScanner_ConfigEVM(self, pConfig)
+    def setConfig(self, scanConfigIndex, scan_type, num_patterns, num_repeats, wavelength_start_nm, wavelength_end_nm, width_px):
+        return _NIRScanner.NIRScanner_setConfig(self, scanConfigIndex, scan_type, num_patterns, num_repeats, wavelength_start_nm, wavelength_end_nm, width_px)
+
+    def configEVM(self, pConfig=None):
+        return _NIRScanner.NIRScanner_configEVM(self, pConfig)
 
     def scan(self, saveDataFlag=False, numRepeats=1):
         return _NIRScanner.NIRScanner_scan(self, saveDataFlag, numRepeats)

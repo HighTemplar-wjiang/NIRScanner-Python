@@ -11,6 +11,11 @@ from _NIRScanner import *
 
 class NIRS:
 
+    class TYPES:
+        COLUMN_TYPE = 0
+        HADAMARD_TYPE = 1
+        SLEW_TYPE = 2
+
     def __init__(self):
         self.nirs_obj = new_NIRScanner()
         atexit.register(self._cleanup)
@@ -63,10 +68,19 @@ class NIRS:
     def set_hibernate(self, new_value: bool):
         return NIRScanner_setHibernate(self.nirs_obj, new_value)
 
+    def set_config(self, scanConfigIndex=8, scan_type=1, num_patterns=228, num_repeats=6, 
+                   wavelength_start_nm=900, wavelength_end_nm=1700, width_px=7):
+        return NIRScanner_setConfig(self.nirs_obj, scanConfigIndex, scan_type, num_patterns, num_repeats, 
+                                    wavelength_start_nm, wavelength_end_nm, width_px)
+
 
 if __name__ == "__main__":
     nirs = NIRS()
     nirs.display_version()
     nirs.scan()
+
+    # Set config. 
+    nirs.set_config(8, NIRS.TYPES.HADAMARD_TYPE, 228, 6, 900, 1700, 7)
+
     results = nirs.get_scan_results()
     pass
