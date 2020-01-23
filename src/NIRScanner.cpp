@@ -217,7 +217,8 @@ void NIRScanner::setLampOnOff(bool newValue)
         else {
             this->mPrevPGAGain = currentPGAGain;
         }
-        NNO_SetFixedPGAGain(true, 64);
+        // NNO_SetFixedPGAGain(true, 64);
+        NNO_SetFixedPGAGain(false, 64);
     } 
     else {
         // Enable control when scanning.
