@@ -27,6 +27,7 @@ NIRScanner::NIRScanner(uScanConfig *pConfig) {
 
     // Quary PGA gain.
     int pga_val = NNO_GetPGAGain();
+    this->mPrevPGAGain = pga_val;
     std::cout << "PGA gain: " << pga_val << std::endl;
 
     // Fetch reference data.
@@ -195,6 +196,37 @@ void NIRScanner::setConfig(uint16_t scanConfigIndex,  // < Unique ID per spectro
     this->mConfig.scanCfg.width_px = width_px;
 
     this->configEVM();
+}
+
+void NIRScanner::setLampOnOff(bool newValue)
+/* 
+* Set the lamp always on or off. 
+*/
+{
+    if(newValue) {
+        // Disable controlling the lamp when scanning.
+        NNO_SetScanControlsDLPCOnOff(false);
+        // Enable DLPC.
+        NNO_DLPCEnable(true, true);
+        // Save current PGA gain and set it to 64.
+        int currentPGAGain = NNO_GetPGAGain();
+        if(currentPGAGain < 0) {
+            // Failed.
+            this->mPrevPGAGain = 1;
+        }
+        else {
+            this->mPrevPGAGain = currentPGAGain;
+        }
+        NNO_SetFixedPGAGain(true, 64);
+    } 
+    else {
+        // Enable control when scanning.
+        NNO_SetScanControlsDLPCOnOff(true);
+        // Disable DLPC.
+        NNO_DLPCEnable(false, false);
+        // Set PGA Gain to auto.
+        NNO_SetFixedPGAGain(false, this->mPrevPGAGain);
+    }
 }
 
 

@@ -114,6 +114,9 @@ class NIRScanner(_object):
     def readVersion(self):
         return _NIRScanner.NIRScanner_readVersion(self)
 
+    def setLampOnOff(self, newValue):
+        return _NIRScanner.NIRScanner_setLampOnOff(self, newValue)
+
     def setConfig(self, scanConfigIndex, scan_type, num_patterns, num_repeats, wavelength_start_nm, wavelength_end_nm, width_px):
         return _NIRScanner.NIRScanner_setConfig(self, scanConfigIndex, scan_type, num_patterns, num_repeats, wavelength_start_nm, wavelength_end_nm, width_px)
 

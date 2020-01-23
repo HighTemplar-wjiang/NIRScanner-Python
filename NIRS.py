@@ -72,15 +72,31 @@ class NIRS:
                    wavelength_start_nm=900, wavelength_end_nm=1700, width_px=7):
         return NIRScanner_setConfig(self.nirs_obj, scanConfigIndex, scan_type, num_patterns, num_repeats, 
                                     wavelength_start_nm, wavelength_end_nm, width_px)
+    
+    def set_lamp_on_off(self, new_value):
+        return NIRScanner_setLampOnOff(self.nirs_obj, new_value)
 
 
 if __name__ == "__main__":
+    import time
+
     nirs = NIRS()
     nirs.display_version()
-    nirs.scan()
 
     # Set config. 
     nirs.set_config(8, NIRS.TYPES.HADAMARD_TYPE, 228, 6, 900, 1700, 7)
 
+    # Turn on the lamp.
+    nirs.set_lamp_on_off(True)
+    time.sleep(3)
+
+    # Scan.
+    nirs.scan()
     results = nirs.get_scan_results()
+    nirs.scan()
+    results = nirs.get_scan_results()
+
+    # Turn lamp off.
+    nirs.set_lamp_on_off(False)
+
     pass

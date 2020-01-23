@@ -23,6 +23,7 @@ using namespace std;
 class NIRScanner {
 private:
     EVM mEvm;
+    uint8 mPrevPGAGain;
     uScanConfig mConfig;
     void *pRefDataBlob;
     scanResults mScanResults;
@@ -33,6 +34,7 @@ public:
     ~NIRScanner();
 
     int readVersion();
+    void setLampOnOff(bool newValue);
     void setConfig(uint16_t scanConfigIndex, uint8_t scan_type, uint16_t num_patterns, uint16_t num_repeats, 
                    uint16_t wavelength_start_nm, uint16_t wavelength_end_nm, uint8_t width_px); 
     void configEVM(uScanConfig* pConfig = nullptr);
