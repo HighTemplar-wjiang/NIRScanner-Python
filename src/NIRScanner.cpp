@@ -248,6 +248,9 @@ int NIRScanner::_performScanReadData(bool storeInSD, uint16 numRepeats, void *pD
     unsigned int devStatus;
     string scanTimeText;
 
+    // Reset error.
+    NNO_ResetErrorStatus();
+
     // NNO_SetFixedPGAGain(true,1);   /* Only used for testing Fixed PGA command  */
     NNO_SetScanNumRepeats(numRepeats);
     std::cout << "Scan in progress.Estimated Scan time is approximately "
