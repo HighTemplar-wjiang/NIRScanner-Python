@@ -198,17 +198,56 @@ void NIRScanner::setConfig(uint16_t scanConfigIndex,  // < Unique ID per spectro
     this->configEVM();
 }
 
-void NIRScanner::setLampOnOff(bool newValue)
+void NIRScanner::setLampOnOff(int32_t newValue)
 /* 
 * Set the lamp always on or off. 
+* @param newValue - I - if -1 then always off, if 0 then on when scanning, if 1 then always on. 
 */
 {
-    if(newValue) {
-        // Disable controlling the lamp when scanning.
+    // Sanity check.
+    if(newValue > 1 || newValue < -1) {
+        // Do nothing. 
+        printf("ERROR: setLampOnOff: unsupported value %d\n", newValue);
+        return;
+    }
+
+    // On when scanning.
+    if(newValue == 0) { 
+        // Enable control when scanning.
+        NNO_SetScanControlsDLPCOnOff(true);
+        // Disable DLPC.
+        NNO_DLPCEnable(false, false);
+        // Set PGA Gain to auto.
+        NNO_SetFixedPGAGain(false, this->mPrevPGAGain);
+    }
+    else { 
+        // Reset then set (might have low-level bugs there.)
+
+        // Enable auto-contol.
+        NNO_SetScanControlsDLPCOnOff(true);
+        // Disable DLPC.
+        NNO_DLPCEnable(false, false);
+        // Wait for a second for the command execution.
+        sleep(1);
+
+        // Set manually control the lamp.
         NNO_SetScanControlsDLPCOnOff(false);
-        // Enable DLPC.
-        NNO_DLPCEnable(true, true);
-        // Save current PGA gain and set it to 64.
+
+        if(newValue == -1) {
+            // Enable DLPC, keep the lamp off.
+            printf("INFO: keeping lamp off.\n");
+            NNO_DLPCEnable(true, false);
+        }
+        else if(newValue == 1) {
+            // Enable DLPC, keep the lamp on.
+            printf("INFO: keeping lamp on.\n");
+            NNO_DLPCEnable(true, true);
+        }
+        else {
+            // This case is included in sanity check.
+        }
+
+        // Save current PGA gain and set it to 1.
         int currentPGAGain = NNO_GetPGAGain();
         if(currentPGAGain < 0) {
             // Failed.
@@ -218,16 +257,34 @@ void NIRScanner::setLampOnOff(bool newValue)
             this->mPrevPGAGain = currentPGAGain;
         }
         // NNO_SetFixedPGAGain(true, 64);
-        NNO_SetFixedPGAGain(false, 64);
-    } 
-    else {
-        // Enable control when scanning.
-        NNO_SetScanControlsDLPCOnOff(true);
-        // Disable DLPC.
-        NNO_DLPCEnable(false, false);
-        // Set PGA Gain to auto.
-        NNO_SetFixedPGAGain(false, this->mPrevPGAGain);
+        NNO_SetFixedPGAGain(true, 1);
+
     }
+    // if(newValue) {
+    //     // Disable controlling the lamp when scanning.
+    //     NNO_SetScanControlsDLPCOnOff(false);
+    //     // Enable DLPC.
+    //     NNO_DLPCEnable(true, true);
+    //     // Save current PGA gain and set it to 64.
+    //     int currentPGAGain = NNO_GetPGAGain();
+    //     if(currentPGAGain < 0) {
+    //         // Failed.
+    //         this->mPrevPGAGain = 1;
+    //     }
+    //     else {
+    //         this->mPrevPGAGain = currentPGAGain;
+    //     }
+    //     // NNO_SetFixedPGAGain(true, 64);
+    //     NNO_SetFixedPGAGain(false, 64);
+    // } 
+    // else {
+    //     // Enable control when scanning.
+    //     NNO_SetScanControlsDLPCOnOff(true);
+    //     // Disable DLPC.
+    //     NNO_DLPCEnable(false, false);
+    //     // Set PGA Gain to auto.
+    //     NNO_SetFixedPGAGain(false, this->mPrevPGAGain);
+    // }
 }
 
 

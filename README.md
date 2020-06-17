@@ -11,6 +11,15 @@ This is an unofficial Python library for NIRScanner Nano produced by Texas Instr
     sudo apt-get install libudev-dev libusb-1.0-0-dev python-dev python3-dev
     ```
 
+# Implemented features
+- Config the scanning pattern.
+- Perform a scan.
+- Get scanning result.
+- Set hibernation mode.
+- Keep the lamp on / off. 
+
+If you need / implemented a new feature, you may send me an email / pull request.
+
 # Quick Start
 ## Compile
 Already compiled for Debian/Ubuntu systems.
@@ -48,13 +57,15 @@ NIRScanner-Python$ cp ./lib/NIRS.py <your-project-path>
 ```
 
 ## Run
-You need root (sudo) permission. For a workaround please refer to [1].
+You need root (sudo) permission. Otherwise you may need a workaround such as in [1].
 ```python
 from NIRS import NIRS
 nirs = NIRS()
 results = nirs.scan()
 ```
 That's it.
+
+For more features / examples please refer to _test.ipynb_ (jupyter notebook, don't forget sudo) and _NIRS.py_.
 
 [1] https://stackoverflow.com/questions/3738173/why-does-pyusb-libusb-require-root-sudo-permissions-on-linux
 
