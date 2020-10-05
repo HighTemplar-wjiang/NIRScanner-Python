@@ -3544,6 +3544,27 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_NIRScanner_resetErrorStatus(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  NIRScanner *arg1 = (NIRScanner *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:NIRScanner_resetErrorStatus",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_NIRScanner, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "NIRScanner_resetErrorStatus" "', argument " "1"" of type '" "NIRScanner *""'"); 
+  }
+  arg1 = reinterpret_cast< NIRScanner * >(argp1);
+  (arg1)->resetErrorStatus();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_NIRScanner_setLampOnOff(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   NIRScanner *arg1 = (NIRScanner *) 0 ;
@@ -3750,6 +3771,135 @@ fail:
     "  Possible C/C++ prototypes are:\n"
     "    NIRScanner::configEVM(uScanConfig *)\n"
     "    NIRScanner::configEVM()\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_NIRScanner_setPGAGain(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  NIRScanner *arg1 = (NIRScanner *) 0 ;
+  int32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:NIRScanner_setPGAGain",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_NIRScanner, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "NIRScanner_setPGAGain" "', argument " "1"" of type '" "NIRScanner *""'"); 
+  }
+  arg1 = reinterpret_cast< NIRScanner * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "NIRScanner_setPGAGain" "', argument " "2"" of type '" "int32_t""'");
+  } 
+  arg2 = static_cast< int32_t >(val2);
+  (arg1)->setPGAGain(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_NIRScanner_scanSNR__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  NIRScanner *arg1 = (NIRScanner *) 0 ;
+  bool arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  std::string result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:NIRScanner_scanSNR",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_NIRScanner, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "NIRScanner_scanSNR" "', argument " "1"" of type '" "NIRScanner *""'"); 
+  }
+  arg1 = reinterpret_cast< NIRScanner * >(argp1);
+  ecode2 = SWIG_AsVal_bool(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "NIRScanner_scanSNR" "', argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = static_cast< bool >(val2);
+  result = (arg1)->scanSNR(arg2);
+  resultobj = SWIG_From_std_string(static_cast< std::string >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_NIRScanner_scanSNR__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  NIRScanner *arg1 = (NIRScanner *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  std::string result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:NIRScanner_scanSNR",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_NIRScanner, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "NIRScanner_scanSNR" "', argument " "1"" of type '" "NIRScanner *""'"); 
+  }
+  arg1 = reinterpret_cast< NIRScanner * >(argp1);
+  result = (arg1)->scanSNR();
+  resultobj = SWIG_From_std_string(static_cast< std::string >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_NIRScanner_scanSNR(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[3] = {
+    0
+  };
+  Py_ssize_t ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 2) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 1) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_NIRScanner, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_NIRScanner_scanSNR__SWIG_1(self, args);
+    }
+  }
+  if (argc == 2) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_NIRScanner, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      {
+        int res = SWIG_AsVal_bool(argv[1], NULL);
+        _v = SWIG_CheckState(res);
+      }
+      if (_v) {
+        return _wrap_NIRScanner_scanSNR__SWIG_0(self, args);
+      }
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'NIRScanner_scanSNR'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    NIRScanner::scanSNR(bool)\n"
+    "    NIRScanner::scanSNR()\n");
   return 0;
 }
 
@@ -3977,9 +4127,12 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"new_NIRScanner", _wrap_new_NIRScanner, METH_VARARGS, NULL},
 	 { (char *)"delete_NIRScanner", _wrap_delete_NIRScanner, METH_VARARGS, NULL},
 	 { (char *)"NIRScanner_readVersion", _wrap_NIRScanner_readVersion, METH_VARARGS, NULL},
+	 { (char *)"NIRScanner_resetErrorStatus", _wrap_NIRScanner_resetErrorStatus, METH_VARARGS, NULL},
 	 { (char *)"NIRScanner_setLampOnOff", _wrap_NIRScanner_setLampOnOff, METH_VARARGS, NULL},
 	 { (char *)"NIRScanner_setConfig", _wrap_NIRScanner_setConfig, METH_VARARGS, NULL},
 	 { (char *)"NIRScanner_configEVM", _wrap_NIRScanner_configEVM, METH_VARARGS, NULL},
+	 { (char *)"NIRScanner_setPGAGain", _wrap_NIRScanner_setPGAGain, METH_VARARGS, NULL},
+	 { (char *)"NIRScanner_scanSNR", _wrap_NIRScanner_scanSNR, METH_VARARGS, NULL},
 	 { (char *)"NIRScanner_scan", _wrap_NIRScanner_scan, METH_VARARGS, NULL},
 	 { (char *)"NIRScanner_getScanData", _wrap_NIRScanner_getScanData, METH_VARARGS, NULL},
 	 { (char *)"NIRScanner_setHibernate", _wrap_NIRScanner_setHibernate, METH_VARARGS, NULL},

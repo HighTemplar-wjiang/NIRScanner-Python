@@ -161,12 +161,23 @@ int NIRScanner::readVersion()
 }
 
 
-void NIRScanner::configEVM(uScanConfig *pConfig) {
-/* 
- * Config NRIScan Nano. If pConfig is not provided, using the config stored in the instance..
- * 
- * 
+void NIRScanner::resetErrorStatus()
+/*
+* Reset device's error status.
 */
+{
+    int result = NNO_ResetErrorStatus();
+    if (result == FAIL) {
+        printf("ERROR: Failed to reset error status.");
+    }
+}
+
+
+void NIRScanner::configEVM(uScanConfig *pConfig)
+/* 
+ * Config NIRScan Nano. If pConfig is not provided, using the config stored in the instance..
+*/
+{
     if (pConfig != nullptr) {
         this->mConfig = *pConfig;
     }
@@ -196,6 +207,30 @@ void NIRScanner::setConfig(uint16_t scanConfigIndex,  // < Unique ID per spectro
     this->mConfig.scanCfg.width_px = width_px;
 
     this->configEVM();
+}
+
+void NIRScanner::setPGAGain(int32_t newValue)
+/*
+* Set the PGA gain.
+* @param newValue - I - Sets ADC PGA gain. Valid values are 0,1,2,4,8,16,32 or 64. If 0, then the gain is auto. 
+*
+*/
+{
+    int result;
+    int pga_val = NNO_GetPGAGain();
+    this->mPrevPGAGain = pga_val;
+
+    if(newValue == 0)
+    {
+        result = NNO_SetFixedPGAGain(false, pga_val);
+    }
+    else{
+        result = NNO_SetFixedPGAGain(true, newValue);
+    }
+
+    if(result == FAIL) {
+        printf("ERROR: setPGAGain: failed to set PGA gain, new value %d.\n", newValue);
+    }
 }
 
 void NIRScanner::setLampOnOff(int32_t newValue)
@@ -403,6 +438,47 @@ int NIRScanner::_interpretData(void *pData)
         }
     }
     return PASS;
+}
+
+
+string NIRScanner::scanSNR(bool isHadamard) 
+/**
+ * Perform a special scan sequence and return SNR values in formated string: [val1, val2, val3].
+ * val1, val2 can val3 are SNR ratios at different time intervals namely 17ms, 133ms and 600ms. 
+ * 
+ * @param isHadamard - B - if true then perform Hadamard scan, otherwise Column.
+ * 
+ */   
+{
+    int status;
+    if (isHadamard == true) {
+        status = NNO_StartHadSNRScan();
+    }
+    else {
+        status = NNO_StartSNRScan();
+    }
+    NNO_PerformScan(false);
+
+    // Scan failed.
+    if (status != PASS) {
+        std::cout << "ERROR: SNR scan failed." << std::endl;
+        return "";
+    }
+
+    // Get SNR data.
+    int val1, val2, val3;
+    status = NNO_GetSNRData(&val1, &val2, &val3);
+
+    // Get results failed.
+    if (status != PASS) {
+        std::cout << "ERROR: Get SNR data failed." << std::endl;
+        return "";
+    }
+
+    // Format and return SNR data.
+    std::stringstream resultSNRs;
+    resultSNRs << "[" << val1 << "," << val2 << "," << val3 << "]";
+    return resultSNRs.str();
 }
 
 

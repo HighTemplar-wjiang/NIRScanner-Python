@@ -8,6 +8,8 @@ sys.path.append(os.path.join(os.path.dirname(__file__), "./"))
 import atexit
 from _NIRScanner import *
 
+import ctypes
+
 
 class NIRS:
 
@@ -23,6 +25,18 @@ class NIRS:
     def _cleanup(self):
         print("Cleanning up NIRS instance.")
         delete_NIRScanner(self.nirs_obj)
+
+    def scan_snr(self, scan_type="hadamard"):
+        if scan_type == "hadamard":
+            hadamard_flag = True
+        elif scan_type == "column":
+            hadamard_flag = False
+        else:
+            print("Unknow scan type {}.".format(scan_type))
+        results_str = NIRScanner_scanSNR(self.nirs_obj, hadamard_flag)
+
+        # Convert to Python object and return. 
+        return eval(results_str)
 
     def scan(self, num_repeats=1):
         NIRScanner_scan(self.nirs_obj, False, num_repeats)
@@ -73,8 +87,14 @@ class NIRS:
         return NIRScanner_setConfig(self.nirs_obj, scanConfigIndex, scan_type, num_patterns, num_repeats, 
                                     wavelength_start_nm, wavelength_end_nm, width_px)
     
+    def set_pga_gain(self, new_value):
+        return NIRScanner_setPGAGain(self.nirs_obj, new_value)
+
     def set_lamp_on_off(self, new_value):
         return NIRScanner_setLampOnOff(self.nirs_obj, new_value)
+    
+    def clear_error_status(self):
+        return NIRScanner_resetErrorStatus(self.nirs_obj)
 
 
 if __name__ == "__main__":

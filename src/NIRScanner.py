@@ -114,6 +114,9 @@ class NIRScanner(_object):
     def readVersion(self):
         return _NIRScanner.NIRScanner_readVersion(self)
 
+    def resetErrorStatus(self):
+        return _NIRScanner.NIRScanner_resetErrorStatus(self)
+
     def setLampOnOff(self, newValue):
         return _NIRScanner.NIRScanner_setLampOnOff(self, newValue)
 
@@ -122,6 +125,12 @@ class NIRScanner(_object):
 
     def configEVM(self, pConfig=None):
         return _NIRScanner.NIRScanner_configEVM(self, pConfig)
+
+    def setPGAGain(self, newValue):
+        return _NIRScanner.NIRScanner_setPGAGain(self, newValue)
+
+    def scanSNR(self, isHadamard=True):
+        return _NIRScanner.NIRScanner_scanSNR(self, isHadamard)
 
     def scan(self, saveDataFlag=False, numRepeats=1):
         return _NIRScanner.NIRScanner_scan(self, saveDataFlag, numRepeats)

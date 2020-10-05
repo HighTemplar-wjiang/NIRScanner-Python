@@ -12,9 +12,11 @@ This is an unofficial Python library for NIRScanner Nano produced by Texas Instr
     ```
 
 # Implemented features
-- Config the scanning pattern.
 - Perform a scan.
 - Get scanning result.
+- Config the scanning pattern.
+- Set PGA gain.
+- Reset error status.
 - Set hibernation mode.
 - Keep the lamp on / off. 
 
