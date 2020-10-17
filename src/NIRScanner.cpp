@@ -48,7 +48,7 @@ NIRScanner::NIRScanner(uScanConfig *pConfig) {
 
 
 NIRScanner::~NIRScanner() {
-
+    USB_Close();
 }
 
 
