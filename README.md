@@ -30,10 +30,12 @@ $ cd NIRScanner-Python
 ```
 For compiling Python 2 library:
 ```console
+NIRScanner-Python$ chmod +x ./src/scripts/compile_py2.sh
 NIRScanner-Python$ ./src/scripts/compile_py2.sh
 ```
 For compiling Python 3 library:
 ```console
+NIRScanner-Python$ chmod +x ./src/scripts/compile_py3.sh
 NIRScanner-Python$ ./src/scripts/compile_py3.sh
 ```
 ## Deploy
