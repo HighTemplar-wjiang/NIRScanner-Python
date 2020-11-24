@@ -3576,6 +3576,83 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_NIRScanner_syncDeviceDateTime(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  NIRScanner *arg1 = (NIRScanner *) 0 ;
+  uint16_t arg2 ;
+  uint8_t arg3 ;
+  uint8_t arg4 ;
+  uint8_t arg5 ;
+  uint8_t arg6 ;
+  uint8_t arg7 ;
+  uint8_t arg8 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned short val2 ;
+  int ecode2 = 0 ;
+  unsigned char val3 ;
+  int ecode3 = 0 ;
+  unsigned char val4 ;
+  int ecode4 = 0 ;
+  unsigned char val5 ;
+  int ecode5 = 0 ;
+  unsigned char val6 ;
+  int ecode6 = 0 ;
+  unsigned char val7 ;
+  int ecode7 = 0 ;
+  unsigned char val8 ;
+  int ecode8 = 0 ;
+  PyObject *swig_obj[8] ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "NIRScanner_syncDeviceDateTime", 8, 8, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_NIRScanner, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "NIRScanner_syncDeviceDateTime" "', argument " "1"" of type '" "NIRScanner *""'"); 
+  }
+  arg1 = reinterpret_cast< NIRScanner * >(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_short(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "NIRScanner_syncDeviceDateTime" "', argument " "2"" of type '" "uint16_t""'");
+  } 
+  arg2 = static_cast< uint16_t >(val2);
+  ecode3 = SWIG_AsVal_unsigned_SS_char(swig_obj[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "NIRScanner_syncDeviceDateTime" "', argument " "3"" of type '" "uint8_t""'");
+  } 
+  arg3 = static_cast< uint8_t >(val3);
+  ecode4 = SWIG_AsVal_unsigned_SS_char(swig_obj[3], &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "NIRScanner_syncDeviceDateTime" "', argument " "4"" of type '" "uint8_t""'");
+  } 
+  arg4 = static_cast< uint8_t >(val4);
+  ecode5 = SWIG_AsVal_unsigned_SS_char(swig_obj[4], &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "NIRScanner_syncDeviceDateTime" "', argument " "5"" of type '" "uint8_t""'");
+  } 
+  arg5 = static_cast< uint8_t >(val5);
+  ecode6 = SWIG_AsVal_unsigned_SS_char(swig_obj[5], &val6);
+  if (!SWIG_IsOK(ecode6)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "NIRScanner_syncDeviceDateTime" "', argument " "6"" of type '" "uint8_t""'");
+  } 
+  arg6 = static_cast< uint8_t >(val6);
+  ecode7 = SWIG_AsVal_unsigned_SS_char(swig_obj[6], &val7);
+  if (!SWIG_IsOK(ecode7)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "NIRScanner_syncDeviceDateTime" "', argument " "7"" of type '" "uint8_t""'");
+  } 
+  arg7 = static_cast< uint8_t >(val7);
+  ecode8 = SWIG_AsVal_unsigned_SS_char(swig_obj[7], &val8);
+  if (!SWIG_IsOK(ecode8)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode8), "in method '" "NIRScanner_syncDeviceDateTime" "', argument " "8"" of type '" "uint8_t""'");
+  } 
+  arg8 = static_cast< uint8_t >(val8);
+  (arg1)->syncDeviceDateTime(arg2,arg3,arg4,arg5,arg6,arg7,arg8);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_NIRScanner_scanSNR__SWIG_0(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   NIRScanner *arg1 = (NIRScanner *) 0 ;
@@ -3890,6 +3967,7 @@ static PyMethodDef SwigMethods[] = {
 	 { "NIRScanner_setConfig", _wrap_NIRScanner_setConfig, METH_VARARGS, NULL},
 	 { "NIRScanner_configEVM", _wrap_NIRScanner_configEVM, METH_VARARGS, NULL},
 	 { "NIRScanner_setPGAGain", _wrap_NIRScanner_setPGAGain, METH_VARARGS, NULL},
+	 { "NIRScanner_syncDeviceDateTime", _wrap_NIRScanner_syncDeviceDateTime, METH_VARARGS, NULL},
 	 { "NIRScanner_scanSNR", _wrap_NIRScanner_scanSNR, METH_VARARGS, NULL},
 	 { "NIRScanner_scan", _wrap_NIRScanner_scan, METH_VARARGS, NULL},
 	 { "NIRScanner_getScanData", _wrap_NIRScanner_getScanData, METH_O, NULL},

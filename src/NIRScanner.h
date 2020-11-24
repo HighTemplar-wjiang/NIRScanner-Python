@@ -51,6 +51,7 @@ public:
                     ); 
     void configEVM(uScanConfig* pConfig = nullptr);
     void setPGAGain(int32_t newValue);
+    void syncDeviceDateTime(uint16_t year, uint8_t month, uint8_t day, uint8_t wday, uint8_t hour, uint8_t min, uint8_t sec);
 
     string scanSNR(bool isHadamard=true);
     void scan(bool saveDataFlag=false, int numRepeats=1);

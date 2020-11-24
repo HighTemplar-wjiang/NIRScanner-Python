@@ -256,6 +256,21 @@ void NIRScanner::setPGAGain(int32_t newValue)
     }
 }
 
+void NIRScanner::syncDeviceDateTime(uint16_t year, uint8_t month, uint8_t day, uint8_t wday, uint8_t hour, uint8_t min, uint8_t sec)
+{
+    NNO_SetDateTime(uint8_t(year - 2000), uint8_t(month), uint8_t(day), uint8_t(wday), uint8_t(hour), uint8_t(min), uint8_t(sec));
+
+	uint8_t yearR = 0;
+	uint8_t monthR = 0;
+	uint8_t dayR = 0;
+	uint8_t wdayR = 0;
+	uint8_t hourR = 0;
+	uint8_t minR = 0;
+	uint8_t secR = 0;
+	NNO_GetDateTime(&yearR, &monthR, &dayR, &wdayR, &hourR, &minR, &secR);
+	printf("synchronized date time %d.%d.%d-%d:%d:%d\n", yearR + 2000, monthR, dayR, hourR, minR, secR);
+}
+
 void NIRScanner::setLampOnOff(int32_t newValue)
 /* 
 * Set the lamp always on or off. 

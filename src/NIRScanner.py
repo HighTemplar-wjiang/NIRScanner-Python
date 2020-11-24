@@ -87,6 +87,9 @@ class NIRScanner(object):
     def setPGAGain(self, newValue):
         return _NIRScanner.NIRScanner_setPGAGain(self, newValue)
 
+    def syncDeviceDateTime(self, year, month, day, wday, hour, min, sec):
+        return _NIRScanner.NIRScanner_syncDeviceDateTime(self, year, month, day, wday, hour, min, sec)
+
     def scanSNR(self, isHadamard=True):
         return _NIRScanner.NIRScanner_scanSNR(self, isHadamard)
 

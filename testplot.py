@@ -9,18 +9,21 @@ import matplotlib.pyplot as plt
 import numpy as np
 from NIRS import NIRS
 from time import sleep
+import time
 
 def main():
     nirs = NIRS()
     nirs.display_version()
 
     # Set config. 
-    nirs.set_pga_gain(0)
+    localtime = time.localtime(time.time())
+    nirs.sync_device_date_time(localtime.tm_year, localtime.tm_mon, localtime.tm_mday, localtime.tm_wday, localtime.tm_hour, localtime.tm_min, localtime.tm_sec);
     nirs.set_config(8, NIRS.TYPES.COLUMN_TYPE, 220, 10, 900, 1700, 15, 1, "12345", "my_cfg8")
     nirs.set_hibernate(False)
     nirs.clear_error_status()
     nirs.set_lamp_on_off(0)
     nirs.set_lamp_on_off(1)
+    nirs.set_pga_gain(0)
     print("Scanning...")
     sleep(1)
     nirs.scan(6)
