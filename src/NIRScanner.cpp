@@ -196,15 +196,38 @@ void NIRScanner::setConfig(uint16_t scanConfigIndex,  // < Unique ID per spectro
                            uint16_t num_repeats, // Number of times to repeat the scan on the spectromter before averaging the scans together and returning the results. This can be used to increase integration time.
                            uint16_t wavelength_start_nm, // Minimum wavelength to start the scan from, in nm.
                            uint16_t wavelength_end_nm, // Maximum wavelength to end the scan at, in nm.
-                           uint8_t width_px // Pixel width of the patterns. Increasing this will increase SNR, but reduce resolution.
-                           ) {
-    this->mConfig.scanCfg.scanConfigIndex = scanConfigIndex;
-    this->mConfig.scanCfg.scan_type = scan_type;
-    this->mConfig.scanCfg.num_patterns = num_patterns;
-    this->mConfig.scanCfg.num_repeats = num_repeats;
-    this->mConfig.scanCfg.wavelength_start_nm = wavelength_start_nm;
-    this->mConfig.scanCfg.wavelength_end_nm = wavelength_end_nm;
-    this->mConfig.scanCfg.width_px = width_px;
+                           uint8_t width_px ,// Pixel width of the patterns. Increasing this will increase SNR, but reduce resolution.
+						   uint16_t  exposure_time, //Time for for which each pattern	in this  section will be exposed. Values should be as per EXP_TIME enum above
+						   const char* ScanConfig_serial_number, //Serial number of the spectrometer 
+						    const char* config_name//User friendly scan configuration name for display 
+                           ) 
+{
+    if(scan_type != SLEW_TYPE)
+    {
+        this->mConfig.scanCfg.scanConfigIndex = scanConfigIndex;
+        this->mConfig.scanCfg.scan_type = scan_type;
+        this->mConfig.scanCfg.num_patterns = num_patterns;
+        this->mConfig.scanCfg.num_repeats = num_repeats;
+        this->mConfig.scanCfg.wavelength_start_nm = wavelength_start_nm;
+        this->mConfig.scanCfg.wavelength_end_nm = wavelength_end_nm;
+        this->mConfig.scanCfg.width_px = width_px;
+        memcpy(this->mConfig.scanCfg.ScanConfig_serial_number,  ScanConfig_serial_number,  NANO_SER_NUM_LEN);
+        memcpy(this->mConfig.scanCfg.config_name, config_name, SCAN_CFG_FILENAME_LEN);
+    }
+    else
+    {
+        this->mConfig.slewScanCfg.head.num_sections;
+        this->mConfig.slewScanCfg.head.num_repeats;
+        for(uint8_t i=0; i < this->mConfig.slewScanCfg.head.num_sections; i++)
+        {
+            this->mConfig.slewScanCfg.section[i].section_scan_type;
+            this->mConfig.slewScanCfg.section[i].wavelength_start_nm;
+            this->mConfig.slewScanCfg.section[i].wavelength_end_nm;
+            this->mConfig.slewScanCfg.section[i].width_px;
+            this->mConfig.slewScanCfg.section[i].num_patterns;
+            this->mConfig.slewScanCfg.section[i].exposure_time;
+        }
+    }
 
     this->configEVM();
 }

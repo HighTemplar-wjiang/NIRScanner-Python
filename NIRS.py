@@ -83,9 +83,9 @@ class NIRS:
         return NIRScanner_setHibernate(self.nirs_obj, new_value)
 
     def set_config(self, scanConfigIndex=8, scan_type=1, num_patterns=228, num_repeats=6, 
-                   wavelength_start_nm=900, wavelength_end_nm=1700, width_px=7):
+                   wavelength_start_nm=900, wavelength_end_nm=1700, width_px=7, exposure_time = 0, ScanConfig_serial_number = "", config_name = "cfg8"):
         return NIRScanner_setConfig(self.nirs_obj, scanConfigIndex, scan_type, num_patterns, num_repeats, 
-                                    wavelength_start_nm, wavelength_end_nm, width_px)
+                                    wavelength_start_nm, wavelength_end_nm, width_px, exposure_time, ScanConfig_serial_number, config_name)
     
     def set_pga_gain(self, new_value):
         return NIRScanner_setPGAGain(self.nirs_obj, new_value)
