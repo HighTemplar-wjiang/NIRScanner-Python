@@ -198,8 +198,7 @@ void NIRScanner::setConfig(uint16_t scanConfigIndex,  // < Unique ID per spectro
                            uint16_t wavelength_end_nm, // Maximum wavelength to end the scan at, in nm.
                            uint8_t width_px ,// Pixel width of the patterns. Increasing this will increase SNR, but reduce resolution.
 						   uint16_t  exposure_time, //Time for for which each pattern	in this  section will be exposed. Values should be as per EXP_TIME enum above
-						   const char* ScanConfig_serial_number, //Serial number of the spectrometer 
-						    const char* config_name//User friendly scan configuration name for display 
+						   const char* config_name//User friendly scan configuration name for display 
                            ) 
 {
     if(scan_type != SLEW_TYPE)
@@ -211,7 +210,11 @@ void NIRScanner::setConfig(uint16_t scanConfigIndex,  // < Unique ID per spectro
         this->mConfig.scanCfg.wavelength_start_nm = wavelength_start_nm;
         this->mConfig.scanCfg.wavelength_end_nm = wavelength_end_nm;
         this->mConfig.scanCfg.width_px = width_px;
-        memcpy(this->mConfig.scanCfg.ScanConfig_serial_number,  ScanConfig_serial_number,  NANO_SER_NUM_LEN);
+
+        char ser_num[NANO_SER_NUM_LEN] = "";
+        NNO_GetSerialNumber(ser_num);
+        memcpy(this->mConfig.scanCfg.ScanConfig_serial_number, ser_num,  NANO_SER_NUM_LEN);
+        
         memcpy(this->mConfig.scanCfg.config_name, config_name, SCAN_CFG_FILENAME_LEN);
     }
     else

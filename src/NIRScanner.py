@@ -78,8 +78,8 @@ class NIRScanner(object):
     def setLampOnOff(self, newValue):
         return _NIRScanner.NIRScanner_setLampOnOff(self, newValue)
 
-    def setConfig(self, scanConfigIndex, scan_type, num_patterns, num_repeats, wavelength_start_nm, wavelength_end_nm, width_px, exposure_time, ScanConfig_serial_number, config_name):
-        return _NIRScanner.NIRScanner_setConfig(self, scanConfigIndex, scan_type, num_patterns, num_repeats, wavelength_start_nm, wavelength_end_nm, width_px, exposure_time, ScanConfig_serial_number, config_name)
+    def setConfig(self, scanConfigIndex, scan_type, num_patterns, num_repeats, wavelength_start_nm, wavelength_end_nm, width_px, exposure_time, config_name):
+        return _NIRScanner.NIRScanner_setConfig(self, scanConfigIndex, scan_type, num_patterns, num_repeats, wavelength_start_nm, wavelength_end_nm, width_px, exposure_time, config_name)
 
     def configEVM(self, pConfig=None):
         return _NIRScanner.NIRScanner_configEVM(self, pConfig)

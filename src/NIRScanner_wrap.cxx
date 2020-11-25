@@ -3363,7 +3363,6 @@ SWIGINTERN PyObject *_wrap_NIRScanner_setConfig(PyObject *SWIGUNUSEDPARM(self), 
   uint8_t arg8 ;
   uint16_t arg9 ;
   char *arg10 = (char *) 0 ;
-  char *arg11 = (char *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   unsigned short val2 ;
@@ -3385,12 +3384,9 @@ SWIGINTERN PyObject *_wrap_NIRScanner_setConfig(PyObject *SWIGUNUSEDPARM(self), 
   int res10 ;
   char *buf10 = 0 ;
   int alloc10 = 0 ;
-  int res11 ;
-  char *buf11 = 0 ;
-  int alloc11 = 0 ;
-  PyObject *swig_obj[11] ;
+  PyObject *swig_obj[10] ;
   
-  if (!SWIG_Python_UnpackTuple(args, "NIRScanner_setConfig", 11, 11, swig_obj)) SWIG_fail;
+  if (!SWIG_Python_UnpackTuple(args, "NIRScanner_setConfig", 10, 10, swig_obj)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_NIRScanner, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "NIRScanner_setConfig" "', argument " "1"" of type '" "NIRScanner *""'"); 
@@ -3441,19 +3437,12 @@ SWIGINTERN PyObject *_wrap_NIRScanner_setConfig(PyObject *SWIGUNUSEDPARM(self), 
     SWIG_exception_fail(SWIG_ArgError(res10), "in method '" "NIRScanner_setConfig" "', argument " "10"" of type '" "char const *""'");
   }
   arg10 = reinterpret_cast< char * >(buf10);
-  res11 = SWIG_AsCharPtrAndSize(swig_obj[10], &buf11, NULL, &alloc11);
-  if (!SWIG_IsOK(res11)) {
-    SWIG_exception_fail(SWIG_ArgError(res11), "in method '" "NIRScanner_setConfig" "', argument " "11"" of type '" "char const *""'");
-  }
-  arg11 = reinterpret_cast< char * >(buf11);
-  (arg1)->setConfig(arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,(char const *)arg10,(char const *)arg11);
+  (arg1)->setConfig(arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,(char const *)arg10);
   resultobj = SWIG_Py_Void();
   if (alloc10 == SWIG_NEWOBJ) delete[] buf10;
-  if (alloc11 == SWIG_NEWOBJ) delete[] buf11;
   return resultobj;
 fail:
   if (alloc10 == SWIG_NEWOBJ) delete[] buf10;
-  if (alloc11 == SWIG_NEWOBJ) delete[] buf11;
   return NULL;
 }
 

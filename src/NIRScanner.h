@@ -46,7 +46,6 @@ public:
                     uint16_t wavelength_end_nm, // Maximum wavelength to end the scan at, in nm.
                     uint8_t width_px ,// Pixel width of the patterns. Increasing this will increase SNR, but reduce resolution.
 					uint16_t  exposure_time, //Time for for which each pattern	in this  section will be exposed. Values should be as per EXP_TIME enum above
-					const char* ScanConfig_serial_number, //Serial number of the spectrometer 
 					const char* config_name//User friendly scan configuration name for display 
                     ); 
     void configEVM(uScanConfig* pConfig = nullptr);
