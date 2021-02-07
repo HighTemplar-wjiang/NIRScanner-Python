@@ -1,6 +1,7 @@
 # NIRScanner Python Wrapper
 # Created by Weiwei Jiang
-#
+# Fix by Jintao Yang on 2020/11/24
+#!/usr/bin/python3.8
 
 import os, sys
 sys.path.append(os.path.join(os.path.dirname(__file__), "./"))
@@ -83,9 +84,9 @@ class NIRS:
         return NIRScanner_setHibernate(self.nirs_obj, new_value)
 
     def set_config(self, scanConfigIndex=8, scan_type=1, num_patterns=228, num_repeats=6, 
-                   wavelength_start_nm=900, wavelength_end_nm=1700, width_px=7):
+                   wavelength_start_nm=900, wavelength_end_nm=1700, width_px=7, exposure_time = 0, ScanConfig_serial_number = "", config_name = "cfg8"):
         return NIRScanner_setConfig(self.nirs_obj, scanConfigIndex, scan_type, num_patterns, num_repeats, 
-                                    wavelength_start_nm, wavelength_end_nm, width_px)
+                                    wavelength_start_nm, wavelength_end_nm, width_px, exposure_time, config_name)
     
     def set_pga_gain(self, new_value):
         return NIRScanner_setPGAGain(self.nirs_obj, new_value)
@@ -96,6 +97,8 @@ class NIRS:
     def clear_error_status(self):
         return NIRScanner_resetErrorStatus(self.nirs_obj)
 
+    def sync_device_date_time(self, year = 1970, month = 1, day = 1, wday = 0, hour = 0, min = 0, sec = 0):
+        return NIRScanner_syncDeviceDateTime(self.nirs_obj, year, month, day, wday, hour, min, sec)
 
 if __name__ == "__main__":
     import time
@@ -107,7 +110,7 @@ if __name__ == "__main__":
     nirs.set_config(8, NIRS.TYPES.HADAMARD_TYPE, 228, 6, 900, 1700, 7)
 
     # Turn on the lamp.
-    nirs.set_lamp_on_off(True)
+    nirs.set_lamp_on_off(1)
     time.sleep(3)
 
     # Scan.
@@ -117,6 +120,6 @@ if __name__ == "__main__":
     results = nirs.get_scan_results()
 
     # Turn lamp off.
-    nirs.set_lamp_on_off(False)
+    nirs.set_lamp_on_off(-1)
 
     pass
