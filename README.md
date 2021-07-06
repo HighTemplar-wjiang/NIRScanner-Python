@@ -4,6 +4,7 @@ This is an unofficial Python library for NIRScanner Nano produced by Texas Instr
 # Prerequisite
 - Operating System
   - Only tested on Linux (Ubuntu & Noobs for Pi)
+  - Tested with virtual machine (VMWare Workstation Player)
 - Dependencies
   - Python 2.7 or Python 3.5 above 
   - Development packages for libudev, libusb. Debian/Ubuntu systems can run:
@@ -65,9 +66,22 @@ from NIRS import NIRS
 nirs = NIRS()
 results = nirs.scan()
 ```
+Note if you are using virtual environment or Anaconda, make sure you are using the absolute python path for sudo. 
+```console
+$ which python
+/your/path/to/python
+$ sudo /your/path/to/python your_python_code.py
+```
+For jupyter
+```console
+$ which jupyter 
+/your/path/to/jupyter
+$ sudo /your/path/to/jupyter lab 
+```
+
 That's it.
 
-For more features / examples please refer to _test.ipynb_ (jupyter notebook, don't forget sudo) and _NIRS.py_.
+For more features / examples please refer to _test.ipynb_ (jupyter notebook, also don't forget sudo) and _NIRS.py_.
 
 [1] https://stackoverflow.com/questions/3738173/why-does-pyusb-libusb-require-root-sudo-permissions-on-linux
 

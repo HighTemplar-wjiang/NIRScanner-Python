@@ -25,6 +25,7 @@ using namespace std;
 class NIRScanner {
 private:
     EVM mEvm;
+    bool mErrorFlag;
     uint8 mPrevPGAGain;
     uScanConfig mConfig;
     void *pRefDataBlob;

@@ -25,6 +25,9 @@ NIRScanner::NIRScanner(uScanConfig *pConfig) {
         std::cout << "ERROR: Failed to open USB." << std::endl;
     }
 
+    // Reset error status.
+    this->resetErrorStatus();
+
     // Quary PGA gain.
     int pga_val = NNO_GetPGAGain();
     this->mPrevPGAGain = pga_val;
@@ -43,7 +46,6 @@ NIRScanner::NIRScanner(uScanConfig *pConfig) {
 
     // Apply configuration.
     this->configEVM();
-
 }
 
 
@@ -169,6 +171,9 @@ void NIRScanner::resetErrorStatus()
     int result = NNO_ResetErrorStatus();
     if (result == FAIL) {
         printf("ERROR: Failed to reset error status.");
+    }
+    else {
+        this->mErrorFlag = false;
     }
 }
 
