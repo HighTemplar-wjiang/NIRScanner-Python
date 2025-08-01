@@ -85,8 +85,56 @@ For more features / examples please refer to _test.ipynb_ (jupyter notebook, als
 
 [1] https://stackoverflow.com/questions/3738173/why-does-pyusb-libusb-require-root-sudo-permissions-on-linux
 
-# FAQ
-TBD
+# Citations
+If you find this repository useful, I would appreciate it if you can cite our papers below:
+
+```
+@article{jiang2020probing,
+author = {Jiang, Weiwei and Marini, Gabriele and van Berkel, Niels and Sarsenbayeva, Zhanna and Tan, Zheyu and Luo, Chu and He, Xin and Dingler, Tilman and Goncalves, Jorge and Kawahara, Yoshihiro and Kostakos, Vassilis},
+title = {Probing Sucrose Contents in Everyday Drinks Using Miniaturized Near-Infrared Spectroscopy Scanners},
+year = {2020},
+issue_date = {December 2019},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {3},
+number = {4},
+url = {https://doi.org/10.1145/3369834},
+doi = {10.1145/3369834},
+journal = {Proc. ACM Interact. Mob. Wearable Ubiquitous Technol.},
+month = sep,
+articleno = {136},
+numpages = {25},
+keywords = {Near-Infrared spectroscopy, food scanner, liquid sensing, machine learning, mobile sensing}
+}
+
+@article{jiang2022near,
+author = {Jiang, Weiwei and Yu, Difeng and Wang, Chaofan and Sarsenbayeva, Zhanna and van Berkel, Niels and Goncalves, Jorge and Kostakos, Vassilis},
+title = {Near-infrared Imaging for Information Embedding and Extraction with Layered Structures},
+year = {2022},
+issue_date = {February 2023},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {42},
+number = {1},
+issn = {0730-0301},
+url = {https://doi.org/10.1145/3533426},
+doi = {10.1145/3533426},
+journal = {ACM Trans. Graph.},
+month = aug,
+articleno = {4},
+numpages = {26},
+keywords = {Near-infrared spectroscopy, information embedding, information extraction, non-invasive inspection}
+}
+```
+
+# Related repositories
+- NIRScanner-Imaging: https://github.com/HighTemplar-wjiang/NIRScanner-Imaging 
+
+    _A no-reference wavelength selection algorithm for near-infrared imaging._
+
+- NIRScanner-Plotter: https://github.com/HighTemplar-wjiang/NIRScanner-Plotter
+
+    _A Python Django based server to control a NIRScan Nano and a 2D plotter._
 
 # License
 This repository uses source codes from DLP NIRscan Nano GUI and DLP Spectrum Library, I didn't find any lisence within those repositories, please email me if there is.
